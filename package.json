@@ -1,0 +1,36 @@
+{
+  "name": "drinking-roulette",
+  "version": "1.0.0",
+  "description": "Party drinking roulette — add names, order or shuffle them, then time every turn.",
+  "productName": "Drinking Roulette",
+  "author": "",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "quasar dev",
+    "build": "quasar build",
+    "postinstall": "quasar prepare --silent"
+  },
+  "dependencies": {
+    "@quasar/extras": "^2.1.0",
+    "quasar": "^2.35.5",
+    "vue": "^3.5.45",
+    "vue-router": "^4.6.5"
+  },
+  "devDependencies": {
+    "@quasar/app-vite": "2.5.3",
+    "autoprefixer": "^10.4.27",
+    "postcss": "^8.5.8"
+  },
+  "engines": {
+    "node": ">= 20.19.0"
+  },
+  "keywords": [
+    "quasar",
+    "vue",
+    "drinking",
+    "party",
+    "timer",
+    "roulette"
+  ]
+}
