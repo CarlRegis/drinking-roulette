@@ -18,6 +18,10 @@ export default defineConfig(() => {
     build: {
       vueRouterMode: 'hash',
 
+      // GitHub Pages project sites are served from /<repo>/, so the CI
+      // workflow sets PUBLIC_PATH when building. Locally it stays "/".
+      publicPath: process.env.PUBLIC_PATH || '/',
+
       // Capacitor/Cordova friendly (hash routing already covers it)
       target: {},
 

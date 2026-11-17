@@ -48,6 +48,38 @@ Deploy the contents of `dist/spa` to any static host (Netlify, Vercel, GitHub Pa
 Cloudflare Pages, a plain folder on a server…). Routing uses the hash (`/#/play`), so
 no SPA rewrite configuration is needed.
 
+## Deploy to GitHub Pages
+
+This repo ships with `.github/workflows/deploy.yml`, which builds and deploys the app
+on every push to `main` (and can be run manually from the Actions tab).
+
+1. Push the repository to GitHub.
+2. In the repo, open **Settings → Pages**.
+3. Under **Build and deployment → Source**, choose **GitHub Actions**.
+4. Push to `main` (or run the workflow manually) and wait for the deploy job.
+
+The site is published at:
+
+```
+https://<user>.github.io/<repo>/
+```
+
+Pages serves project sites from a subpath, so the workflow sets
+`PUBLIC_PATH=/<repo>/` before building. The name is detected automatically, so a
+`<user>.github.io` repository correctly builds with `/` instead. To reproduce a
+project-site build locally:
+
+```bash
+# PowerShell
+$env:PUBLIC_PATH='/drinking-roulette/'; npm run build; Remove-Item Env:PUBLIC_PATH
+
+# bash
+PUBLIC_PATH=/drinking-roulette/ npm run build
+```
+
+Hash routing means no 404 fallback, SPA rewrite rules, or Jekyll workarounds are
+needed on Pages.
+
 ## Going mobile later (Capacitor)
 
 The project is prepared for it:
